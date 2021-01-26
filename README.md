@@ -4,6 +4,10 @@
 
 A small tool to plan your evening with dinner and a movie.
 
+### Built With
+
+[Spoonacular API](https://spoonacular.com/food-api)
+
 ## User Story
 
 ```
