@@ -33,3 +33,7 @@ THEN I am presented with a movie to watch
 
 * Hannah
 * Brendan
+
+## Design Wireframe
+
+![design wireframe](./assets/images/design-wireframe.png)
