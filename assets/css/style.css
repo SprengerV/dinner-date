@@ -1,0 +1,25 @@
+body, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    background: #073B4C;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-family: 'Abril Fatface', cursive;
+    
+}
+h1 {
+    letter-spacing: 5px; 
+}
+
+div.sub-line {
+    text-align: center;
+    color: #073B4C;
+    
+}
