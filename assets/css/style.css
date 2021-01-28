@@ -1,0 +1,25 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+div.contentArea {
+	display: flex;
+	flex: 1 1 auto;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+div.contentArea>div {
+	text-align: center;
+}
+
+h3 {
+	background-color: #EF476F;
+	color: white;
+}
