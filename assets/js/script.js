@@ -45,26 +45,30 @@ $('.chips-autocomplete').chips({
 // need an onclick event for search button
 $(searchBtn).on('click',);
 
-// need a function to string text from ingredient input to add to api request
+// need a function to string text from input groups to add to api request
+function grabInputs() {
+    // if else statement? if some inputs not entered, still accept other inputs
+}
 
 // need a function to autocomplete ingredient items
 
 
 // need a function to gather ingredients for API request
 function searchByIngredient() {
-    let queryURL = 'https://api.spoonacular.com/recipes/findByIngredients?ingredients='+ingredients;
+    let queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}`;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
+        // Call other functions here?
         console.log(response);
     })
 }
 
 // need a function to gather diet type
 function searchByDiet() {
-    let queryURL = 'https://api.spoonacular.com/recipes/complexSearch?diet='+dietType;
+    let queryURL = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&apiKey=${apiKey}`;
 
     $.ajax({
         url: queryURL,
@@ -75,4 +79,13 @@ function searchByDiet() {
 }
 
 // need a function to gather intolerances
+function searchByIntolerances() {
+    let queryURL = `https://api.spoonacular.com/recipes/complexSearch?intolerances=${intolerances}&apiKey=${apiKey}`;
 
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+    })
+}
