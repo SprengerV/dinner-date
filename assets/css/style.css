@@ -23,3 +23,17 @@ div.sub-line {
     color: #073B4C;
     
 }
+h5 {
+    font-family: 'Carter One', cursive;
+}
+
+.start-dinner {
+    padding: 100px;
+    background-image: url("../images/dinner-img/todd-quackenbush-x5SRhkFajrA-unsplash.jpg");
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-family: 'Abril Fatface', cursive;
+}
