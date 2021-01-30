@@ -1,80 +1,54 @@
-body, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .header {
-    width: 100%;
-    background: #073B4C;
-    padding: 50px;
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    font-family: 'Abril Fatface', cursive;
-    
+	width: 100%;
+	background: #073B4C;
+	padding: 50px;
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	font-family: 'Abril Fatface', cursive;
 }
+
 h1 {
-    letter-spacing: 5px; 
+	letter-spacing: 5px;
 }
 
 div.sub-line {
-    text-align: center;
-    color: #073B4C;
-    
+	text-align: center;
+	color: #073B4C;
 }
+
 h4 {
-    font-family: 'Carter One', cursive;
-    text-align: center;
-    color: #073B4C;
+	font-family: 'Carter One', cursive;
+	text-align: center;
+	color: #073B4C;
 }
 
 .start-dinner {
-    padding: 100px;
-    background-image: url("../images/dinner-img/todd-quackenbush-x5SRhkFajrA-unsplash.jpg");
-    background-position: center center;
-    background-size: cover;
-    text-align: center;
-    letter-spacing: 5px;
-    color: white;
-    font-size: 80px;
-    font-family: 'Abril Fatface', cursive;
-}
-
-.intoleranceArea {
-	display: none;
-}
-
-#intoleranceDropDown {
-	cursor: pointer;
-	user-select: none;
-	-khtml-user-select: none;
-	-o-user-select: none;
-	-moz-user-select: -moz-none;
-	-webkit-user-select: none;
+	padding: 100px;
+	background-image: url("../images/dinner-img/todd-quackenbush-x5SRhkFajrA-unsplash.jpg");
+	background-position: center center;
+	background-size: cover;
+	text-align: center;
+	letter-spacing: 5px;
+	color: white;
+	font-size: 80px;
+	font-family: 'Abril Fatface', cursive;
 }
 
 .start-movie {
-    padding: 100px;
-    background-image: url("../images/movies/mollie-sivaram-yubCnXAA3H8-unsplash.jpg");
-    background-position: center center;
-    background-size: cover;
-    text-align: center;
-    letter-spacing: 5px;
-    color: white;
-    font-size: 80px;
-    font-family: 'Abril Fatface', cursive;
-}
-
-.dropDownArea {
-	display: none;
-}
-
-.dropDownControl {
-	cursor: pointer;
-	user-select: none;
-	-khtml-user-select: none;
-	-o-user-select: none;
-	-moz-user-select: -moz-none;
-	-webkit-user-select: none;
+	padding: 100px;
+	background-image: url("../images/movies/mollie-sivaram-yubCnXAA3H8-unsplash.jpg");
+	background-position: center center;
+	background-size: cover;
+	text-align: center;
+	letter-spacing: 5px;
+	color: white;
+	font-size: 80px;
+	font-family: 'Abril Fatface', cursive;
 }
