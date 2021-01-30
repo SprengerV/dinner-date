@@ -1,7 +1,8 @@
 body, body {
     width: 100%;
     margin: 0;
-    padding: 0;
+	padding: 0;
+	height: 100%;
 }
 
 .header {
@@ -41,6 +42,11 @@ h4 {
     font-family: 'Abril Fatface', cursive;
 }
 
+.mealSearchForm {
+	margin: 10px;
+	padding: 10px;
+}
+
 .intoleranceArea {
 	display: none;
 }
@@ -63,7 +69,8 @@ h4 {
     letter-spacing: 5px;
     color: white;
     font-size: 80px;
-    font-family: 'Abril Fatface', cursive;
+	font-family: 'Abril Fatface', cursive;
+	margin-bottom: 50px;
 }
 
 .dropDownArea {
