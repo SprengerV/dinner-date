@@ -49,4 +49,19 @@ $(function () {
 			);
 	});
 
+	// intolerance drop-down
+	$("#intoleranceDropDown").on("click", function (e) {
+		let command = $(this).children("span").text();
+		switch (command) {
+			case "hide":
+				$("#intoleranceList").fadeOut();
+				command = "show"
+				break;
+			default:
+				$("#intoleranceList").fadeIn();
+				command = "hide";
+				break;
+		}
+		$(this).children("span").text(command);
+	});
 });

@@ -28,4 +28,15 @@ form {
 	text-align: left;
 }
 
-.intoleranceArea {}
+.intoleranceArea {
+	display: none;
+}
+
+#intoleranceDropDown {
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-o-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+}
