@@ -8,6 +8,8 @@ The deployed project can be viewed [here](https://thetiiiim.github.io/evening-pl
 
 ### Built With
 
+[TheMovieDB API](https://www.themoviedb.org/documentation/api)
+
 [Spoonacular API](https://spoonacular.com/food-api)
 
 ## User Story
