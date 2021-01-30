@@ -3,15 +3,7 @@ $(function () {
 	$('.chips').chips();
 	$('select').formSelect();
 
-	// prevent form submission when adding ingredient chip
-	$('form .chips input').keydown(function (e) {
-		if (e.keyCode == 13) {
-			e.preventDefault();
-			return false;
-		}
-	});
-
-	// intolerance list to display in form
+	// input options
 	let intolerances = [
 		"Dairy",
 		"Egg",
@@ -27,28 +19,6 @@ $(function () {
 		"Wheat"
 	];
 
-	let $intoleranceList = $("#intoleranceList");
-
-	// populate intolerance list 
-	intolerances.forEach(allergy => {
-		let inputID = "I" + allergy;
-		$intoleranceList
-			.append($("<p>")
-				.addClass("col s12 m6")
-				.append($("<label>")
-					.attr("for", inputID)
-					.append($("<input>")
-						.attr("id", inputID)
-						.attr("type", "checkbox")
-						.attr("name", inputID)
-					)
-					.append($("<span>")
-						.text(allergy)
-					)
-				)
-			);
-	});
-
 	let diets = [
 		"Regular Diet",
 		"Gluten Free",
@@ -57,30 +27,68 @@ $(function () {
 		"Paleo"
 	];
 
-	let $dietList = $("#dietList");
+	// populate input choices
+	let $intoleranceList = $("#intoleranceList");
+	populateInputs($intoleranceList, intolerances, "checkbox", "I");
 
-	// populate diet list 
-	diets.forEach(diet => {
-		let inputID = "D" + diet;
-		let value = diet;
-		if (diet === "Regular Diet") value = "";
-		$dietList
-			.append($("<p>")
-				.addClass("col s12 m6")
-				.append($("<label>")
-					.attr("for", inputID)
-					.append($("<input>")
-						.attr("id", inputID)
-						.attr("type", "radio")
-						.attr("name", "DDiet")
-						.attr("value", value)
+	let $dietList = $("#dietList");
+	populateInputs($dietList, diets, "radio", "DDiet");
+
+	// creates checkbox or radio inputs from given array
+	// and places them in the given jquery object
+	// prefix is used for parsing form data
+	function populateInputs($area, array, type, prefix) {
+		// make sure type is checkbox or radio
+		if (!(type === "checkbox" || type === "radio")) {
+			throw new Error(`Input type must be either 'checkbox' or 'radio', received ${type}`);
+		}
+
+		// iterate of array items
+		array.forEach((item, index) => {
+			if (!(typeof item === "string")) {
+				throw new Error("Given array must only contain strings.");
+			}
+
+			// generate metadata
+			let inputID = prefix + item;
+
+			let value;
+			if (type === "checkbox") {
+				// checkbox values are true or false
+				value = true;
+			} else {
+				// radio value is name
+				value = item;
+			}
+
+			let name;
+			if (type === "radio") {
+				// group radio types by name
+				name = prefix;
+			} else {
+				// checkboxes get their own name
+				name = inputID;
+			}
+
+			// create and append elements
+			$area
+				.append($("<p>")
+					.addClass("col s12 m6")
+					.append($("<label>")
+						.attr("for", inputID)
+						.append($("<input>")
+							.attr("id", inputID)
+							.attr("type", type)
+							.attr("name", name)
+							.attr("value", value)
+						)
+						.append($("<span>")
+							.text(item)
+						)
 					)
-					.append($("<span>")
-						.text(diet)
-					)
-				)
-			);
-	});
+				);
+		});
+	}
 
 	// intolerance drop-down
 	$(".dropDownControl").on("click", function (e) {
@@ -99,5 +107,13 @@ $(function () {
 				break;
 		}
 		$(this).children("span").text(command);
+	});
+
+	// prevent form submission when adding ingredient chip
+	$('form .chips input').keydown(function (e) {
+		if (e.keyCode == 13) {
+			e.preventDefault();
+			return false;
+		}
 	});
 });
