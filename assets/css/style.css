@@ -23,8 +23,10 @@ div.sub-line {
     color: #073B4C;
     
 }
-h5 {
+h4 {
     font-family: 'Carter One', cursive;
+    text-align: center;
+    color: #073B4C;
 }
 
 .start-dinner {
@@ -38,3 +40,4 @@ h5 {
     font-size: 80px;
     font-family: 'Abril Fatface', cursive;
 }
+
