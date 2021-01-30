@@ -27,12 +27,12 @@ $(function () {
 		"Wheat"
 	];
 
-	let intoleranceArea = $(".intoleranceArea");
+	let $intoleranceList = $("#intoleranceList");
 
 	// populate intolerance list 
 	intolerances.forEach(allergy => {
 		let inputID = "I" + allergy;
-		intoleranceArea
+		$intoleranceList
 			.append($("<p>")
 				.addClass("col s12 m6 xl4")
 				.append($("<label>")
@@ -49,16 +49,50 @@ $(function () {
 			);
 	});
 
+	let diets = [
+		"No Restrictions",
+		"Gluten Free",
+		"Vegetarian",
+		"Vegan",
+		"Paleo"
+	];
+
+	let $dietList = $("#dietList");
+
+	// populate diet list 
+	diets.forEach(diet => {
+		let inputID = "D" + diet;
+		$dietList
+			.append($("<p>")
+				.addClass("col s12 m6 xl4")
+				.append($("<label>")
+					.attr("for", inputID)
+					.append($("<input>")
+						.attr("id", inputID)
+						.attr("type", "radio")
+						.attr("name", "DDiet")
+						.attr("value", diet)
+					)
+					.append($("<span>")
+						.text(diet)
+					)
+				)
+			);
+	});
+
 	// intolerance drop-down
-	$("#intoleranceDropDown").on("click", function (e) {
-		let command = $(this).children("span").text();
+	$(".dropDownControl").on("click", function (e) {
+		let element = $(this);
+		let command = element.children("span").text();
+		let dropDownAreaID = element.attr("data-controls");
+		let dropDownArea = $(`#${dropDownAreaID}`);
 		switch (command) {
 			case "hide":
-				$("#intoleranceList").fadeOut();
+				dropDownArea.fadeOut();
 				command = "show"
 				break;
 			default:
-				$("#intoleranceList").fadeIn();
+				dropDownArea.fadeIn();
 				command = "hide";
 				break;
 		}

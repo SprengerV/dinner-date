@@ -28,11 +28,11 @@ form {
 	text-align: left;
 }
 
-.intoleranceArea {
+.dropDownArea {
 	display: none;
 }
 
-#intoleranceDropDown {
+.dropDownControl {
 	cursor: pointer;
 	user-select: none;
 	-khtml-user-select: none;

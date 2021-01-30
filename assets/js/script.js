@@ -7,7 +7,8 @@ $(function () {
 		// prepare data object
 		let dataObj = {
 			ingredients: [],
-			intolerances: []
+			intolerances: [],
+			diet: ""
 		};
 
 		// form jquery object
@@ -25,11 +26,18 @@ $(function () {
 
 		// add intolerance data to dataObj
 		formData.forEach(value => {
-			// check value is and intolerance
+			// check if value is an intolerance
 			if (value.name[0] === "I") {
 				dataObj.intolerances.push(value.name.slice(1).toLowerCase());
 			}
+			// check if value is a diet
+			if (value.name === "DDiet") {
+				dataObj.diet = (value.value.toLowerCase());
+			}
 		});
+
+		// if value is "no restrictions", just leave the value empty
+		if (dataObj.diet === "no restrictions") dataObj.diet = "";
 
 		// all form data is in dataObj now
 		console.log(dataObj);
