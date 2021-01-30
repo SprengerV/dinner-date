@@ -34,7 +34,7 @@ $(function () {
 		let inputID = "I" + allergy;
 		$intoleranceList
 			.append($("<p>")
-				.addClass("col s12 m6 xl4")
+				.addClass("col s12 m6")
 				.append($("<label>")
 					.attr("for", inputID)
 					.append($("<input>")
@@ -50,7 +50,7 @@ $(function () {
 	});
 
 	let diets = [
-		"No Restrictions",
+		"Regular Diet",
 		"Gluten Free",
 		"Vegetarian",
 		"Vegan",
@@ -62,16 +62,18 @@ $(function () {
 	// populate diet list 
 	diets.forEach(diet => {
 		let inputID = "D" + diet;
+		let value = diet;
+		if (diet === "Regular Diet") value = "";
 		$dietList
 			.append($("<p>")
-				.addClass("col s12 m6 xl4")
+				.addClass("col s12 m6")
 				.append($("<label>")
 					.attr("for", inputID)
 					.append($("<input>")
 						.attr("id", inputID)
 						.attr("type", "radio")
 						.attr("name", "DDiet")
-						.attr("value", diet)
+						.attr("value", value)
 					)
 					.append($("<span>")
 						.text(diet)

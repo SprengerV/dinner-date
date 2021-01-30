@@ -36,9 +36,6 @@ $(function () {
 			}
 		});
 
-		// if value is "no restrictions", just leave the value empty
-		if (dataObj.diet === "no restrictions") dataObj.diet = "";
-
 		// all form data is in dataObj now
 		console.log(dataObj);
 	});
