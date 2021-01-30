@@ -15,7 +15,7 @@ $(function () {
 		let formData = form.serializeArray();
 
 		// access chips data
-		let chipElement = form.children(".chips").eq(0)
+		let chipElement = form.find(".chips").eq(0)
 		let chipInstance = M.Chips.getInstance(chipElement);
 
 		// add chip data to dataObj

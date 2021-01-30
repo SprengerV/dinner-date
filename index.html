@@ -52,10 +52,10 @@
         <h2>Let's Start With Dinner</h2>
       </div>
 
-      <div class="row dinner-header">
-        <h4>Dinner Ideas</h4>
+      <h4>Dinner Ideas</h4>
 
-        <form class="mealSearchForm">
+      <form class="mealSearchForm">
+        <div class="row">
           <!-- first column of dinner input -->
           <div class="col s4">
             <label for="ingredientArea">Ingredients List</label>
@@ -75,19 +75,20 @@
             <div id="intoleranceList" class="row input-field intoleranceArea">
               <!-- allergies go here -->
             </div>
-
-            <button
-              class="btn waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Submit
-              <i class="material-icons right">send</i>
-            </button>
-            
           </div>
-        </form>
-      </div>
+        </div>
+
+        <div class="row center-align">
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
       <!-- movie image block -->
       <div class="start-movie">
         <h2>Now Lets Find a Movie</h2>
