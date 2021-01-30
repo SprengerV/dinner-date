@@ -4,6 +4,8 @@
 
 A small tool to plan your evening with dinner and a movie.
 
+The deployed project can be viewed [here](https://thetiiiim.github.io/evening-planner/)
+
 ### Built With
 
 [Spoonacular API](https://spoonacular.com/food-api)
