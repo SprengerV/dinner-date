@@ -58,9 +58,22 @@
               />
             </div>
 
-            <div class="row input-field intoleranceArea">
+            <label for="intoleranceList">Allergens and Intolerances</label>
+            <p id="intoleranceDropDown">
+              Click here to <span>show</span> intolerances / allergies.
+            </p>
+            <div id="intoleranceList" class="row input-field intoleranceArea">
               <!-- allergies go here -->
             </div>
+
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >
+              Submit
+              <i class="material-icons right">send</i>
+            </button>
           </form>
         </div>
       </div>
@@ -72,5 +85,7 @@
 
     <!-- custom js -->
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/movie.js"></script>
   </body>
 </html>
