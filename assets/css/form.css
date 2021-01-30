@@ -1,0 +1,12 @@
+.dropDownArea {
+	display: none;
+}
+
+.dropDownControl {
+	cursor: pointer;
+	user-select: none;
+	-khtml-user-select: none;
+	-o-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+}
