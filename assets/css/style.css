@@ -41,3 +41,15 @@ h4 {
     font-family: 'Abril Fatface', cursive;
 }
 
+.start-movie {
+    padding: 100px;
+    background-image: url("../images/movies/mollie-sivaram-yubCnXAA3H8-unsplash.jpg");
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    letter-spacing: 5px;
+    color: white;
+    font-size: 80px;
+    font-family: 'Abril Fatface', cursive;
+}
+
