@@ -27,20 +27,12 @@ $(function () {
 		"Wheat"
 	];
 
-<<<<<<< HEAD
-	let intoleranceArea = $(".intoleranceArea");
-=======
 	let $intoleranceList = $("#intoleranceList");
->>>>>>> a5d30f2794d4bb26c001bea9e17816a3bfad842b
 
 	// populate intolerance list 
 	intolerances.forEach(allergy => {
 		let inputID = "I" + allergy;
-<<<<<<< HEAD
-		intoleranceArea
-=======
 		$intoleranceList
->>>>>>> a5d30f2794d4bb26c001bea9e17816a3bfad842b
 			.append($("<p>")
 				.addClass("col s12 m6 xl4")
 				.append($("<label>")
@@ -57,18 +49,6 @@ $(function () {
 			);
 	});
 
-<<<<<<< HEAD
-	// intolerance drop-down
-	$("#intoleranceDropDown").on("click", function (e) {
-		let command = $(this).children("span").text();
-		switch (command) {
-			case "hide":
-				$("#intoleranceList").fadeOut();
-				command = "show"
-				break;
-			default:
-				$("#intoleranceList").fadeIn();
-=======
 	let diets = [
 		"No Restrictions",
 		"Gluten Free",
@@ -113,7 +93,6 @@ $(function () {
 				break;
 			default:
 				dropDownArea.fadeIn();
->>>>>>> a5d30f2794d4bb26c001bea9e17816a3bfad842b
 				command = "hide";
 				break;
 		}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body, body {
     width: 100%;
     margin: 0;
@@ -47,43 +46,6 @@ h4 {
 }
 
 #intoleranceDropDown {
-=======
-html,
-body {
-	height: 100%;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-}
-
-div.contentArea {
-	display: flex;
-	flex: 1 1 auto;
-	margin-left: 0;
-	margin-right: 0;
-}
-
-div.contentArea>div {
-	text-align: center;
-}
-
-h3 {
-	background-color: #EF476F;
-	color: white;
-}
-
-form {
-	text-align: left;
-}
-
-.dropDownArea {
-	display: none;
-}
-
-.dropDownControl {
->>>>>>> a5d30f2794d4bb26c001bea9e17816a3bfad842b
 	cursor: pointer;
 	user-select: none;
 	-khtml-user-select: none;
@@ -91,7 +53,6 @@ form {
 	-moz-user-select: -moz-none;
 	-webkit-user-select: none;
 }
-<<<<<<< HEAD
 
 .start-movie {
     padding: 100px;
@@ -105,5 +66,3 @@ form {
     font-family: 'Abril Fatface', cursive;
 }
 
-=======
->>>>>>> a5d30f2794d4bb26c001bea9e17816a3bfad842b
