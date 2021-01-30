@@ -19,8 +19,10 @@
       rel="stylesheet"
     />
     <!-- materialize icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -44,7 +46,7 @@
       </div>
 
       <div class="divider"></div>
-      
+
       <!-- dinner image block -->
       <div class="start-dinner">
         <h2>Let's Start With Dinner</h2>
@@ -53,8 +55,8 @@
       <div class="row dinner-header">
         <h4>Dinner Ideas</h4>
 
-        <form>
-			<!-- first column of dinner input -->
+        <form class="mealSearchForm">
+          <!-- first column of dinner input -->
           <div class="col s4">
             <label for="ingredientArea">Ingredients List</label>
             <div class="chips chips-placeholder input-field">
@@ -64,25 +66,26 @@
                 placeholder="+ ingredients"
               />
             </div>
-		  </div>
-		  <div class="col s4"> 
-          <label for="intoleranceList">Allergens and Intolerances</label>
-          <p id="intoleranceDropDown">
-            Click here to <span>show</span> intolerances / allergies.
-          </p>
-          <div id="intoleranceList" class="row input-field intoleranceArea">
-            <!-- allergies go here -->
           </div>
+          <div class="col s4">
+            <label for="intoleranceList">Allergens and Intolerances</label>
+            <p id="intoleranceDropDown">
+              Click here to <span>show</span> intolerances / allergies.
+            </p>
+            <div id="intoleranceList" class="row input-field intoleranceArea">
+              <!-- allergies go here -->
+            </div>
 
-          <button
-            class="btn waves-effect waves-light"
-            type="submit"
-            name="action"
-          >
-            Submit
-            <i class="material-icons right">send</i>
-		  </button>
-		</div>
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >
+              Submit
+              <i class="material-icons right">send</i>
+            </button>
+            
+          </div>
         </form>
       </div>
       <!-- movie image block -->
