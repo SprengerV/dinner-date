@@ -1,4 +1,4 @@
-let urlQuery = "https://api.spoonacular.com/recipes/complexSearch"
+         
 const apiKey = '38f510f9fde94594b09c5518393c289c'
 
 // variables to store list of ingredients 
@@ -43,49 +43,42 @@ $('.chips-autocomplete').chips({
 });
 
 // need an onclick event for search button
-$(searchBtn).on('click',);
+$(searchBtn).on('click', (e) => {
+    e.preventDefault();
+    grabInputs();
+});
 
 // need a function to string text from input groups to add to api request
 function grabInputs() {
-    // if else statement? if some inputs not entered, still accept other inputs
+ 
 }
 
 // need a function to autocomplete ingredient items
 
 
-// need a function to gather ingredients for API request
-function searchByIngredient() {
-    let queryURL = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}`;
+// function that gathers all parameters and calls to API
+function searchRecipes(diet, includeIngredients, intolerances) {
+    const numberOfRecipes = 5;
+    let queryURL = `https://api.spoonacular.com/recipes/complexSearch?diet=${diet}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&number=${numberOfRecipes}&addRecipeInformation=true&apiKey=${apiKey}`;
 
     $.ajax({
         url: queryURL,
-        method: "GET"
-    }).then(function(response){
-        // Call other functions here?
-        console.log(response);
-    })
+        method: "GET",
+        success: (res) => {
+            return res;
+        }
+    });
 }
 
-// need a function to gather diet type
-function searchByDiet() {
-    let queryURL = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietType}&apiKey=${apiKey}`;
+function getRecipeSummaryById(ID) {
+    let queryURL = `https://api.spoonacular.com/recipes/${ID}/information?apiKey=${apiKey}`;
 
     $.ajax({
         url: queryURL,
-        method: "GET"
-    }).then(function(response){
-        console.log(response);
-    })
+        method: "GET",
+        success: (res) => {
+            return res;
+        }
+    });
 }
 
-// need a function to gather intolerances
-function searchByIntolerances() {
-    let queryURL = `https://api.spoonacular.com/recipes/complexSearch?intolerances=${intolerances}&apiKey=${apiKey}`;
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(response){
-        console.log(response);
-    })
-}
