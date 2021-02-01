@@ -21,9 +21,8 @@ var genres = $('.genre:checked').map(function(){
 const discover = 'https://api.themoviedb.org/3/discover/movie?api_key=' + movAPIkey + '&with_genres=' + genres + '&include_adult=false&with_original_language=en';
 console.log(discover);
 
-$(window).on('load', function(){
-    $.get(discover).then(function(response){
-        console.log(response);
-    });
-
-});
+// $(window).on('load', function(){
+//     $.get(discover).then(function(response){
+//         console.log(response);
+//     });
+// });
