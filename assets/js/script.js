@@ -48,25 +48,22 @@ $(function () {
 		let form = $(this);
 		let genreList = form.serializeArray();
 
-		// all form data is in dataObj now
-		console.log(genreList);
-
 		// all genre checkboxes have 
 		// a class of "genre" and an
 		// attribute "data-genre" = [id]
 
-		var genres = genreList.map(function(gen){
+		var genres = genreList.map(function (gen) {
 			return gen.value;
 		}).join('|');
-		if(genres.length > 0){
+		if (genres.length > 0) {
 			genres = '&with_genres=' + genres;
 		};
 		const discover = 'https://api.themoviedb.org/3/discover/movie?api_key=f66fd70d918aed123c6a3b422a1934d8&include_adult=false&with_original_language=en' + genres;
-		$.get(discover).then(function(response){
-			console.log(response);
+		$.get(discover).then(function (response) {
 			// pick a random movie from the response list
-			const rand = Math.floor(Math.random()*response.results.length);
+			const rand = Math.floor(Math.random() * response.results.length);
 			const pick = response.results[rand];
+
 			// set up displayMovie()
 			let movie = {
 				posterSrc: "",
