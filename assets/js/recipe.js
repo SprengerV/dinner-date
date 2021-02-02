@@ -39,13 +39,9 @@ $(".mealSearchForm").on("submit", function (e) {
 
     // all form data is in dataObj now
     console.log(dataObj);
+    
     searchRecipes(dataObj.diet, dataObj.ingredients.toString(), dataObj.intolerances.toString());
 });
-
-// need a function to string text from input groups to add to api request
-function grabInputs() {
-
-}
 
 
 // function that gathers all parameters and calls to API
@@ -57,8 +53,10 @@ function searchRecipes(diet, includeIngredients, intolerances) {
     $.ajax({
         url: queryURL,
         method: "GET",
+        dataType: "json",
         success: (res) => {
-            return res;
+            console.log(res);
+            // call function here to render recipe cards and pass in res
         }
     });
 }
