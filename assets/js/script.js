@@ -55,14 +55,30 @@ $(function () {
 		// a class of "genre" and an
 		// attribute "data-genre" = [id]
 
-		// set up displayMovie()
-		let movie = {
-			posterSrc: "",
-			name: "",
-			summary: ""
+		var genres = genreList.map(function(gen){
+			return gen.value;
+		}).join('|');
+		if(genres.length > 0){
+			genres = '&with_genres=' + genres;
 		};
-		// display movie
-		// displayMovie(movie);
+		const discover = 'https://api.themoviedb.org/3/discover/movie?api_key=f66fd70d918aed123c6a3b422a1934d8&include_adult=false&with_original_language=en' + genres;
+		$.get(discover).then(function(response){
+			console.log(response);
+			// pick a random movie from the response list
+			const rand = Math.floor(Math.random()*response.results.length);
+			const pick = response.results[rand];
+			// set up displayMovie()
+			let movie = {
+				posterSrc: "",
+				name: "",
+				summary: ""
+			};
+			movie.posterSrc = 'https://image.tmdb.org/t/p/w500' + pick.poster_path;
+			movie.name = pick.title;
+			movie.summary = pick.overview;
+			// display movie
+			displayMovie(movie);
+		});
 	});
 
 	function displayMovie(movieObj) {

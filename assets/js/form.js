@@ -117,7 +117,6 @@ $(function () {
 			}
 			if (prefix === "genre") {
 				inputElement
-					.addClass("genre")
 					.attr("value", itemID)
 					.attr("name", itemName);
 			} else {
