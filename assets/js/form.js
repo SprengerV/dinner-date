@@ -118,7 +118,7 @@ $(function () {
 
 			$area
 				.append($("<p>")
-					.addClass("col s12 m6")
+					.addClass("col s6 m4")
 					.append($("<label>")
 						.attr("for", inputID)
 						.append(inputElement
