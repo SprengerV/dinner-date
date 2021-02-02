@@ -10,3 +10,18 @@
 	-moz-user-select: -moz-none;
 	-webkit-user-select: none;
 }
+.mealSearchForm {
+	text-align: center;
+}
+
+.movieSearchForm {
+	text-align: center;
+}
+
+.input-field {
+	text-align:left;
+}
+
+#genreList {
+	margin-left: 17%;
+}
