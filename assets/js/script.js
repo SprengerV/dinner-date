@@ -66,13 +66,15 @@ $(function () {
 	});
 
 	function displayMovie(movieObj) {
-		let movieArea = $(".movieDisplay").fadeIn();
+		let movieArea = $(".movieDisplay");
 
 		movieArea.find("h2").text(movieObj.name);
 
 		movieArea.find("img").attr("src", movieObj.posterSrc);
 
 		movieArea.find("p").text(movieObj.summary);
+
+		movieArea.fadeIn();
 	}
 
 });
