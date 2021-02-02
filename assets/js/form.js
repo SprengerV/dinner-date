@@ -98,13 +98,23 @@ $(function () {
 				name = inputID;
 			}
 
-			// create and append elements
+			// create elements
+			let p = $("<p>");
+			let label = $("<label>");
 			let inputElement = $("<input>");
+			let span = $("<span>");
 
+			// element modifications
+			p.addClass("col s6 m4");
+			label.attr("for", inputID);
+			inputElement.attr("id", inputID);
+			inputElement.attr("type", type);
+			span.text(itemName);
+
+			// conditional element modifications
 			if (itemID != undefined) {
 				inputElement.attr(`data-${prefix}`, itemID);
 			}
-
 			if (prefix === "genre") {
 				inputElement
 					.addClass("genre")
@@ -116,24 +126,18 @@ $(function () {
 					.attr("name", name);
 			}
 
+			// append elements
 			$area
-				.append($("<p>")
-					.addClass("col s6 m4")
-					.append($("<label>")
-						.attr("for", inputID)
-						.append(inputElement
-							.attr("id", inputID)
-							.attr("type", type)
-						)
-						.append($("<span>")
-							.text(itemName)
-						)
+				.append(p
+					.append(label
+						.append(inputElement)
+						.append(span)
 					)
 				);
 		});
 	}
 
-	// intolerance drop-down
+	// drop-down form selectors
 	$(".dropDownControl").on("click", function (e) {
 		let element = $(this);
 		let command = element.children("span").text();
