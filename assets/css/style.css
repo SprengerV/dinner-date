@@ -52,3 +52,13 @@ h4 {
 	font-size: 80px;
 	font-family: 'Abril Fatface', cursive;
 }
+
+footer {
+	margin-top: 20px;
+	padding: 20px;
+	background-color:#073B4C;
+	color: white;
+}
+footer img {
+	width: 150px;
+}
