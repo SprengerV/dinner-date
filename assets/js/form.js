@@ -27,12 +27,36 @@ $(function () {
 		"Paleo"
 	];
 
+	let genres = [
+		{ id: 28, name: "Action" },
+		{ id: 12, name: "Adventure" },
+		{ id: 16, name: "Animation" },
+		{ id: 35, name: "Comedy" },
+		{ id: 80, name: "Crime" },
+		{ id: 99, name: "Documentary" },
+		{ id: 18, name: "Drama" },
+		{ id: 10751, name: "Family" },
+		{ id: 14, name: "Fantasy" },
+		{ id: 36, name: "History" },
+		{ id: 27, name: "Horror" },
+		{ id: 10402, name: "Music" },
+		{ id: 9648, name: "Mystery" },
+		{ id: 10749, name: "Romance" },
+		{ id: 878, name: "Science Fiction" },
+		{ id: 53, name: "Thriller" },
+		{ id: 10752, name: "War" },
+		{ id: 37, name: "Western" }
+	]
+
 	// populate input choices
 	let $intoleranceList = $("#intoleranceList");
 	populateInputs($intoleranceList, intolerances, "checkbox", "I");
 
 	let $dietList = $("#dietList");
 	populateInputs($dietList, diets, "radio", "DDiet");
+
+	let $genreList = $("#genreList");
+	populateInputs($genreList, genres, "checkbox", "genre");
 
 	// creates checkbox or radio inputs from given array
 	// and places them in the given jquery object
@@ -45,12 +69,16 @@ $(function () {
 
 		// iterate of array items
 		array.forEach((item, index) => {
+			let itemName = item;
+			let itemID = undefined;
+
 			if (!(typeof item === "string")) {
-				throw new Error("Given array must only contain strings.");
+				itemName = item.name;
+				itemID = item.id
 			}
 
 			// generate metadata
-			let inputID = prefix + item;
+			let inputID = prefix + itemName;
 
 			let value;
 			if (type === "checkbox") {
@@ -58,7 +86,7 @@ $(function () {
 				value = true;
 			} else {
 				// radio value is name
-				value = item;
+				value = itemName;
 			}
 
 			let name;
@@ -71,19 +99,34 @@ $(function () {
 			}
 
 			// create and append elements
+			let inputElement = $("<input>");
+
+			if (itemID != undefined) {
+				inputElement.attr(`data-${prefix}`, itemID);
+			}
+
+			if (prefix === "genre") {
+				inputElement
+					.addClass("genre")
+					.attr("value", itemID)
+					.attr("name", itemName);
+			} else {
+				inputElement
+					.attr("value", value)
+					.attr("name", name);
+			}
+
 			$area
 				.append($("<p>")
-					.addClass("col s12 m6")
+					.addClass("col s6 m4")
 					.append($("<label>")
 						.attr("for", inputID)
-						.append($("<input>")
+						.append(inputElement
 							.attr("id", inputID)
 							.attr("type", type)
-							.attr("name", name)
-							.attr("value", value)
 						)
 						.append($("<span>")
-							.text(item)
+							.text(itemName)
 						)
 					)
 				);
