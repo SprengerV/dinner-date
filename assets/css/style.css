@@ -56,9 +56,14 @@ h4 {
 footer {
 	margin-top: 20px;
 	padding: 20px;
-	background-color:#073B4C;
+	background-color: #073B4C;
 	color: white;
 }
+
 footer img {
 	width: 150px;
+}
+
+div.movieDisplay {
+	display: none;
 }
