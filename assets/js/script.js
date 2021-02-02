@@ -52,7 +52,7 @@ $(function () {
 		console.log(genreList);
 
 		// all genre checkboxes have 
-		// a class of "genre" and an 
+		// a class of "genre" and an
 		// attribute "data-genre" = [id]
 
 		var genres = genreList.map(function(gen){
@@ -65,6 +65,24 @@ $(function () {
 		$.get(discover).then(function(response){
 			console.log(response);
 		});
+		// set up displayMovie()
+		let movie = {
+			posterSrc: "",
+			name: "",
+			summary: ""
+		};
+		// display movie
+		// displayMovie(movie);
 	});
+
+	function displayMovie(movieObj) {
+		let movieArea = $(".movieDisplay").fadeIn();
+
+		movieArea.find("h2").text(movieObj.name);
+
+		movieArea.find("img").attr("src", movieObj.posterSrc);
+
+		movieArea.find("p").text(movieObj.summary);
+	}
 
 });
