@@ -75,12 +75,9 @@ function searchRecipes(diet, includeIngredients, intolerances) {
 function getRecipeSummaryById(ID) {
     let queryURL = `https://api.spoonacular.com/recipes/${ID}/information?apiKey=${apiKey}`;
 
-    $.ajax({
+    return $.ajax({
         url: queryURL,
-        method: "GET",
-        success: (res) => {
-            return res;
-        }
+        method: "GET"
     });
 }
 
