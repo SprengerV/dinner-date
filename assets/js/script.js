@@ -78,6 +78,8 @@ $(function () {
 			movie.summary = pick.overview;
 			// display movie
 			displayMovie(movie);
+			// save movie
+			saveMovie(movie);
 		});
 	});
 
@@ -89,6 +91,17 @@ $(function () {
 		movieArea.find("img").attr("src", movieObj.posterSrc);
 
 		movieArea.find("p").text(movieObj.summary);
-	}
+	};
+
+	function saveMovie(movieObj) {
+		let saved = JSON.parse(localStorage.getItem('savedMovies'));
+		if(saved){
+			saved.unshift(movieObj.posterSrc);
+		}else{
+			saved = [movieObj.posterSrc];
+		};
+		localStorage.setItem('savedMovies',JSON.stringify(saved));
+		return saved
+	};
 
 });
