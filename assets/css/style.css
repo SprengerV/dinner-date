@@ -64,6 +64,7 @@ footer img {
 	width: 150px;
 }
 
-div.movieDisplay {
+div.movieDisplay,
+div.recipeDisplay {
 	display: none;
 }
