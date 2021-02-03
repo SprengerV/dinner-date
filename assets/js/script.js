@@ -40,25 +40,28 @@ $(function () {
 	window.displayCard = function (recipientCard, options) {
 		let itemsDisplayed = false;
 
+		// get selectors
 		let title = recipientCard.find("h2").hide();
+		let anchor = recipientCard.find("a").hide();
+		let paragraph = recipientCard.find("p").hide();
+		let image = recipientCard.find("img").hide();
+
+		// apply options
 		if (options.title) {
 			title.text(options.title).show();
 			itemsDisplayed = true;
 		}
 
-		let image = recipientCard.find("img").hide();
 		if (options.imageSrc) {
 			image.attr("src", options.imageSrc).show();
 			itemsDisplayed = true;
 		}
 
-		let paragraph = recipientCard.find("p").hide();
 		if (options.summary) {
 			paragraph.html(options.summary).show();
 			itemsDisplayed = true;
 		}
 
-		let anchor = recipientCard.find("a").hide();
 		if (options.link) {
 			anchor.attr("href", options.link).text("More details here.").show();
 			itemsDisplayed = true;
