@@ -96,9 +96,9 @@ $(function () {
 	function saveMovie(movieObj) {
 		let saved = JSON.parse(localStorage.getItem('savedMovies'));
 		if(saved){
-			saved.unshift(movieObj.posterSrc);
+			saved.unshift(movieObj);
 		}else{
-			saved = [movieObj.posterSrc];
+			saved = [movieObj];
 		};
 		localStorage.setItem('savedMovies',JSON.stringify(saved));
 		return saved
