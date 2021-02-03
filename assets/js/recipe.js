@@ -1,5 +1,5 @@
 // spoontacular API key 
-const apiKey = '38f510f9fde94594b09c5518393c289c'
+const apiKey = 'b3024bbb41d24a8399b73a0b65ddd390'
 
 // meal search submission
 $(".mealSearchForm").on("submit", function (e) {
@@ -44,13 +44,13 @@ $(".mealSearchForm").on("submit", function (e) {
     ).then(function (data) {
         let resultIndex = Math.floor(Math.random() * (data.results.length));
         let result = data.results[resultIndex];
-
+        console.log(result);
         let displayArea = $(".recipeDisplay");
         let recipe = {
             imageSrc: result.image,
             title: result.title,
             summary: result.summary,
-            link: result.spoonacularSourceUrl,
+            link: result.sourceUrl,
             orientation: "vertical"
         };
 
@@ -61,17 +61,18 @@ $(".mealSearchForm").on("submit", function (e) {
 
 // function that gathers all parameters and calls to API
 function searchRecipes(diet, includeIngredients, intolerances) {
-    const numberOfRecipes = 5;
+    const numberOfRecipes = 30;
     const dietRestriction = (diet.toLowerCase() === 'regular diet') ? '' : diet;
     let queryURL = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietRestriction}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&number=${numberOfRecipes}&addRecipeInformation=true&apiKey=${apiKey}`;
-
+    
     return $.ajax({
         url: queryURL,
         method: "GET",
         dataType: "json"
     });
+    
 }
-
+console.log(searchRecipes)
 function getRecipeSummaryById(ID) {
     let queryURL = `https://api.spoonacular.com/recipes/${ID}/information?apiKey=${apiKey}`;
 
