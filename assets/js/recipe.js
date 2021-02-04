@@ -44,13 +44,17 @@ $(".mealSearchForm").on("submit", function (e) {
     ).then(function (data) {
         let resultIndex = Math.floor(Math.random() * (data.results.length));
         let result = data.results[resultIndex];
-
         let displayArea = $(".recipeDisplay");
+
+        let summary = result.summary.split(". ");
+        summary.pop();
+        summary = summary.join(". ");
+
         let recipe = {
             imageSrc: result.image,
             title: result.title,
-            summary: result.summary,
-            link: result.spoonacularSourceUrl,
+            summary: summary,
+            link: result.sourceUrl,
             orientation: "vertical"
         };
         saveRecipe(recipe);
@@ -61,7 +65,7 @@ $(".mealSearchForm").on("submit", function (e) {
 
 // function that gathers all parameters and calls to API
 function searchRecipes(diet, includeIngredients, intolerances) {
-    const numberOfRecipes = 5;
+    const numberOfRecipes = 30;
     const dietRestriction = (diet.toLowerCase() === 'regular diet') ? '' : diet;
     let queryURL = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietRestriction}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&number=${numberOfRecipes}&addRecipeInformation=true&apiKey=${apiKey}`;
 
@@ -80,8 +84,9 @@ function saveRecipe(recipe) {
         savedRecipes = [recipe];
     } else {
         savedRecipes.unshift(recipe);
-        savedRecipes = savedRecipes.slice(0,5);
+        savedRecipes = savedRecipes.slice(0, 5);
     }
-   
+
     localStorage.setItem('recipes', JSON.stringify(savedRecipes));
 }
+
