@@ -1,5 +1,5 @@
 // spoontacular API key 
-const apiKey = 'b3024bbb41d24a8399b73a0b65ddd390'
+const apiKey = '0dd52a65c29243589154bc4fe94f4986'
 
 // meal search submission
 $(".mealSearchForm").on("submit", function (e) {
@@ -84,7 +84,7 @@ function saveRecipe(recipe) {
         savedRecipes = [recipe];
     } else {
         savedRecipes.unshift(recipe);
-        savedRecipes = savedRecipes.slice(0, 5);
+        savedRecipes = savedRecipes.slice(0, 6);
     }
 
     localStorage.setItem('recipes', JSON.stringify(savedRecipes));
