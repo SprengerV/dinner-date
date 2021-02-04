@@ -60,7 +60,7 @@ $(function () {
 
 		let anchor = recipientCard.find("a").hide();
 		if (options.link) {
-			anchor.attr("href", options.link).text("More details here.").show();
+			anchor.attr("href", options.link).text("More details here.").click(() => {console.log('hello');}).show();
 			itemsDisplayed = true;
 		}
 
