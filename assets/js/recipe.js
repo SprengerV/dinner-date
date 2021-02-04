@@ -1,5 +1,5 @@
 // spoontacular API key 
-const apiKey = 'b3024bbb41d24a8399b73a0b65ddd390'
+const apiKey = '55c67627a29e4d8dbf7fe2cf84b71db6'
 
 // meal search submission
 $(".mealSearchForm").on("submit", function (e) {

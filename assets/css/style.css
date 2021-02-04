@@ -35,7 +35,7 @@ div.sub-line {
 	color: #073B4C;
 }
 
-h4 {
+h4, h5 {
 	font-family: 'Archivo Black', sans-serif;
 	text-align: center;
 	color: #073B4C;
@@ -80,12 +80,31 @@ h4 {
 	text-align: center;
 	position:relative;
 }
+#movieDisplay .card-stacked, #movieDisplay .card-image {
+	padding: 5px;
+	border-radius: 10px;
+	border: 5px;
+	margin: 5px;
+}
 
 .movieSummary {
 	top: 50%;
 	text-align: center;
 
 }
+
+#movieHistory .card  {
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	
+}
+
+#movieHistory .card:hover {
+	box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+	transform: translate3d(0px, -1px, 0px);
+  }
 
 footer img {
 	width: 150px;
