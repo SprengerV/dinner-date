@@ -34,6 +34,8 @@ $(function () {
 
 			// display movie
 			window.displayCard($(".movieDisplay"), movie);
+
+			saveMovie(movie);
 		});
 	});
 
@@ -79,4 +81,20 @@ $(function () {
 			recipientCard.hide();
 		}
 	}
+
+	function saveMovie(movieObj) {
+		let saved = JSON.parse(localStorage.getItem('savedMovies'));
+		let savedObj = {
+			imageSrc: movieObj.imageSrc,
+			title: movieObj.title
+		}
+		if (saved) {
+			saved.unshift(savedObj);
+		} else {
+			saved = [savedObj];
+		};
+		localStorage.setItem('savedMovies', JSON.stringify(saved));
+		return saved;
+	};
+
 });
