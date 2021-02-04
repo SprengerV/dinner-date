@@ -24,30 +24,59 @@ $(function () {
 			const rand = Math.floor(Math.random() * response.results.length);
 			const pick = response.results[rand];
 
-			// set up displayMovie()
+			// set up displayCard()
 			let movie = {
-				posterSrc: "",
-				name: "",
-				summary: ""
+				imageSrc: `https://image.tmdb.org/t/p/w500${pick.poster_path}`,
+				title: pick.title,
+				summary: pick.overview,
+				orientation: "horizontal"
 			};
-			movie.posterSrc = 'https://image.tmdb.org/t/p/w500' + pick.poster_path;
-			movie.name = pick.title;
-			movie.summary = pick.overview;
+
 			// display movie
-			displayMovie(movie);
+			window.displayCard($(".movieDisplay"), movie);
 		});
 	});
 
-	function displayMovie(movieObj) {
-		let movieArea = $(".movieDisplay");
+	window.displayCard = function (recipientCard, options) {
+		let itemsDisplayed = false;
 
-		movieArea.find("h2").text(movieObj.name);
+		// get selectors
+		let title = recipientCard.find("h2").hide();
+		let anchor = recipientCard.find("a").hide();
+		let paragraph = recipientCard.find("p").hide();
+		let image = recipientCard.find("img").hide();
 
-		movieArea.find("img").attr("src", movieObj.posterSrc);
+		// apply options
+		if (options.title) {
+			title.text(options.title).show();
+			itemsDisplayed = true;
+		}
 
-		movieArea.find("p").text(movieObj.summary);
+		if (options.imageSrc) {
+			image.attr("src", options.imageSrc).show();
+			itemsDisplayed = true;
+		}
 
-		movieArea.fadeIn();
+		if (options.summary) {
+			paragraph.html(options.summary).show();
+			itemsDisplayed = true;
+		}
+
+		if (options.link) {
+			anchor.attr("href", options.link).text("More details here.").show();
+			itemsDisplayed = true;
+		}
+
+		if (options.orientation === "horizontal") {
+			recipientCard.find(".card").addClass(options.orientation);
+		} else {
+			recipientCard.css("max-width", "500px").css("margin", "0 auto");
+		}
+
+		if (itemsDisplayed) {
+			recipientCard.show();
+		} else {
+			recipientCard.hide();
+		}
 	}
-
 });

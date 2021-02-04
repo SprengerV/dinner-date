@@ -17,11 +17,6 @@ h1 {
 	font-family: 'Abril Fatface', cursive;
 	letter-spacing: 5px;
 }
-a {
-	text-decoration: none;
-	color: white;
-	
-}
 
 div.sub-line {
 	text-align: center;
@@ -69,6 +64,7 @@ footer img {
 	width: 150px;
 }
 
-div.movieDisplay {
+div.movieDisplay,
+div.recipeDisplay {
 	display: none;
 }

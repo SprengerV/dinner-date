@@ -1,5 +1,5 @@
 // spoontacular API key 
-const apiKey = '38f510f9fde94594b09c5518393c289c'
+const apiKey = 'b3024bbb41d24a8399b73a0b65ddd390'
 
 // meal search submission
 $(".mealSearchForm").on("submit", function (e) {
@@ -37,39 +37,51 @@ $(".mealSearchForm").on("submit", function (e) {
         }
     });
 
-    // all form data is in dataObj now
-    console.log(dataObj);
-    
-    searchRecipes(dataObj.diet, dataObj.ingredients.toString(), dataObj.intolerances.toString());
+    searchRecipes(
+        dataObj.diet,
+        dataObj.ingredients.toString(),
+        dataObj.intolerances.toString()
+    ).then(function (data) {
+        let resultIndex = Math.floor(Math.random() * (data.results.length));
+        let result = data.results[resultIndex];
+        let displayArea = $(".recipeDisplay");
+
+        let summary = result.summary.split(". ");
+        summary.pop();
+        summary = summary.join(". ");
+
+        let recipe = {
+            imageSrc: result.image,
+            title: result.title,
+            summary: summary,
+            link: result.sourceUrl,
+            orientation: "vertical"
+        };
+
+        window.displayCard(displayArea, recipe);
+    });
 });
 
 
 // function that gathers all parameters and calls to API
 function searchRecipes(diet, includeIngredients, intolerances) {
-    const numberOfRecipes = 5;
+    const numberOfRecipes = 30;
     const dietRestriction = (diet.toLowerCase() === 'regular diet') ? '' : diet;
     let queryURL = `https://api.spoonacular.com/recipes/complexSearch?diet=${dietRestriction}&intolerances=${intolerances}&includeIngredients=${includeIngredients}&number=${numberOfRecipes}&addRecipeInformation=true&apiKey=${apiKey}`;
 
-    $.ajax({
+    return $.ajax({
         url: queryURL,
         method: "GET",
-        dataType: "json",
-        success: (res) => {
-            console.log(res);
-            // call function here to render recipe cards and pass in res
-        }
+        dataType: "json"
     });
-}
 
+}
 function getRecipeSummaryById(ID) {
     let queryURL = `https://api.spoonacular.com/recipes/${ID}/information?apiKey=${apiKey}`;
 
-    $.ajax({
+    return $.ajax({
         url: queryURL,
-        method: "GET",
-        success: (res) => {
-            return res;
-        }
+        method: "GET"
     });
 }
 
