@@ -64,7 +64,15 @@ footer img {
 	width: 150px;
 }
 
-div.movieDisplay,
-div.recipeDisplay {
+.cardContainer {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	display: flex;
+	justify-content: center;
+}
+
+.cardContainer .card.hidden {
 	display: none;
 }

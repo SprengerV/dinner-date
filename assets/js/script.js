@@ -1,52 +1,33 @@
 $(function () {
+	window.createCard = function (parent, id = "") {
+		let card = $("<div>").addClass("card hidden");
+		card.append($("<div>")
+			.addClass("card-image")
+			.append($("<img>"))
+		).append($("<div>")
+			.addClass("card-stacked")
+			.append($("<div>")
+				.addClass("card-content")
+				.append($("<span>").addClass("card-title"))
+				.append($("<p>"))
+			).append($("<div>")
+				.addClass("card-action")
+				.append($("<a>").attr("target", "_blank"))
+			)
+		);
+		if (id) card.attr("id", id);
+		parent.append(card);
+		return card;
+	}
 
-	// movie search submission
-	$(".movieSearchForm").on("submit", function (e) {
-		e.preventDefault()
-
-		// form jquery object
-		let form = $(this);
-		let genreList = form.serializeArray();
-
-		// all genre checkboxes have 
-		// a class of "genre" and an
-		// attribute "data-genre" = [id]
-
-		var genres = genreList.map(function (gen) {
-			return gen.value;
-		}).join('|');
-		if (genres.length > 0) {
-			genres = '&with_genres=' + genres;
-		};
-		const discover = 'https://api.themoviedb.org/3/discover/movie?api_key=f66fd70d918aed123c6a3b422a1934d8&include_adult=false&with_original_language=en' + genres;
-		$.get(discover).then(function (response) {
-			// pick a random movie from the response list
-			const rand = Math.floor(Math.random() * response.results.length);
-			const pick = response.results[rand];
-
-			// set up displayCard()
-			let movie = {
-				imageSrc: `https://image.tmdb.org/t/p/w500${pick.poster_path}`,
-				title: pick.title,
-				summary: pick.overview,
-				orientation: "horizontal"
-			};
-
-			// display movie
-			window.displayCard($(".movieDisplay"), movie);
-
-			saveMovie(movie);
-		});
-	});
-
-	window.displayCard = function (recipientCard, options) {
+	window.populateCard = function (card, options) {
 		let itemsDisplayed = false;
 
 		// get selectors
-		let title = recipientCard.find("h2").hide();
-		let anchor = recipientCard.find("a").hide();
-		let paragraph = recipientCard.find("p").hide();
-		let image = recipientCard.find("img").hide();
+		let title = card.find(".card-title").hide();
+		let anchor = card.find("a").hide();
+		let paragraph = card.find("p").hide();
+		let image = card.find("img").hide();
 
 		// apply options
 		if (options.title) {
@@ -70,31 +51,15 @@ $(function () {
 		}
 
 		if (options.orientation === "horizontal") {
-			recipientCard.find(".card").addClass(options.orientation);
+			card.addClass(options.orientation);
 		} else {
-			recipientCard.css("max-width", "500px").css("margin", "0 auto");
+			card.css("max-width", "500px");
 		}
 
 		if (itemsDisplayed) {
-			recipientCard.show();
+			card.removeClass("hidden");
 		} else {
-			recipientCard.hide();
+			card.addClass("hidden");
 		}
 	}
-
-	function saveMovie(movieObj) {
-		let saved = JSON.parse(localStorage.getItem('savedMovies'));
-		let savedObj = {
-			imageSrc: movieObj.imageSrc,
-			title: movieObj.title
-		}
-		if (saved) {
-			saved.unshift(savedObj);
-		} else {
-			saved = [savedObj];
-		};
-		localStorage.setItem('savedMovies', JSON.stringify(saved));
-		return saved;
-	};
-
 });

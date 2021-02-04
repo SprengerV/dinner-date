@@ -44,11 +44,12 @@ $(".mealSearchForm").on("submit", function (e) {
     ).then(function (data) {
         let resultIndex = Math.floor(Math.random() * (data.results.length));
         let result = data.results[resultIndex];
-        let displayArea = $(".recipeDisplay");
 
         let summary = result.summary.split(". ");
         summary.pop();
         summary = summary.join(". ");
+
+        let card = window.createCard($("#recipeDisplay").empty());
 
         let recipe = {
             imageSrc: result.image,
@@ -58,10 +59,9 @@ $(".mealSearchForm").on("submit", function (e) {
             orientation: "vertical"
         };
 
-        window.displayCard(displayArea, recipe);
+        window.populateCard(card, recipe);
     });
 });
-
 
 // function that gathers all parameters and calls to API
 function searchRecipes(diet, includeIngredients, intolerances) {
@@ -76,6 +76,7 @@ function searchRecipes(diet, includeIngredients, intolerances) {
     });
 
 }
+
 function getRecipeSummaryById(ID) {
     let queryURL = `https://api.spoonacular.com/recipes/${ID}/information?apiKey=${apiKey}`;
 
