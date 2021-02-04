@@ -4,8 +4,7 @@ $(function () {
 
 	// movie search submission
 	$(".movieSearchForm").on("submit", function (e) {
-		e.preventDefault()
-		console.log("here")
+		e.preventDefault();
 
 		// form jquery object
 		let form = $(this);
@@ -39,9 +38,20 @@ $(function () {
 			// display movie
 			window.populateCard(card, movie);
 
+
+
 			populateMovieHistory($("#movieHistory"), saveMovie(movie));
 		});
 	});
+
+	function populateMovieHistory(container, data) {
+		if (!Array.isArray(data)) return;
+		let newData = [];
+		data.forEach((item, index) => {
+			newData.push({ imageSrc: item.imageSrc });
+		});
+		window.populateHistory(container, newData);
+	}
 
 	function saveMovie(movieObj) {
 		let saved = JSON.parse(localStorage.getItem('savedMovies'));
@@ -62,15 +72,4 @@ $(function () {
 		let saved = JSON.parse(localStorage.getItem('savedMovies'));
 		return saved;
 	};
-
-	function populateMovieHistory(container, data) {
-		if (!Array.isArray(data)) return;
-		container.empty();
-		data.forEach((item, index) => {
-			let card = window.createCard(container, "", false);
-			// if (index === 0) card.addClass("offset-l1");
-			card.addClass("col s12 offset-m3 m6 l2");
-			window.populateCard(card, { imageSrc: item.imageSrc });
-		});
-	}
 });
