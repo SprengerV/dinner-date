@@ -63,7 +63,7 @@ $(function () {
 		}
 
 		if (options.link) {
-			anchor.attr("href", options.link).text("More details here.").click(() => {console.log('hello');}).show();
+			anchor.attr("href", options.link).text("More details here.").show();
 			itemsDisplayed = true;
 		}
 
