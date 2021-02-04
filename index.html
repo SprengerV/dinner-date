@@ -10,7 +10,7 @@
 
 		<!-- library css -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-		<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Carter+One&family=Permanent+Marker&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo+Black&family=Permanent+Marker&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
 		<!-- custom css -->
@@ -23,6 +23,7 @@
 	<body>
 		<div class="header">
 			<h1>Dinner-Date</h1>
+			<!-- <p><a href="#start-dinner">Dinner</a>/<a href="#start-movie">Movie</a> </p> -->
 		</div>
 
 		<div class="container">
@@ -43,7 +44,7 @@
 			<div class="divider"></div>
 
 			<!-- dinner image block -->
-			<div class="start-dinner">
+			<div id="start-dinner" class="start-dinner">
 				<h2>Let's Start With Dinner</h2>
 			</div>
 
@@ -92,8 +93,25 @@
 				</div>
 			</form>
 
+			<div class="col s12 m7 recipeDisplay">
+				<h2></h2>
+				<div class="card">
+					<div class="card-image">
+						<img src="">
+					</div>
+					<div class="card-stacked">
+						<div class="card-content">
+							<p></p>
+						</div>
+						<div class="card-action">
+							<a href="#" target="_blank"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<!-- movie image block -->
-			<div class="start-movie">
+			<div id="start-movie" class="start-movie">
 				<h2>Now Lets Find a Movie</h2>
 			</div>
 
@@ -117,7 +135,7 @@
 			</form>
 
 			<div class="col s12 m7 movieDisplay">
-				<h2>Star Wars (or something)</h2>
+				<h2></h2>
 				<div class="card horizontal">
 					<div class="card-image">
 						<img src="">
@@ -126,9 +144,9 @@
 						<div class="card-content">
 							<p></p>
 						</div>
-						<!-- <div class="card-action">
-							<a href="#">This is a link</a>
-						</div> -->
+						<div class="card-action">
+							<a href="#" target="_blank"></a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -137,7 +155,7 @@
 		<!-- footer -->
 		<footer>
 			<div>
-				<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+				<p>This product uses the TMDb API, <br> but is not endorsed or certified byTMDb.</p>
 				<img src="assets/images/credit-logos/tmdb.svg">
 			</div>
 		</footer>
@@ -149,7 +167,7 @@
 		<!-- custom js -->
 		<script src="./assets/js/script.js"></script>
 		<script src="./assets/js/form.js"></script>
-
+		<script src="./assets/js/recipe.js"></script>
 	</body>
 
 </html>
