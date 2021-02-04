@@ -10,17 +10,28 @@ body {
 	padding: 50px;
 	text-align: center;
 	color: white;
-	font-size: 30px;
 }
 
 h1 {
 	font-family: 'Abril Fatface', cursive;
 	letter-spacing: 5px;
+	font-size: 80px;
+}
+
+button.submit-button{
+	background-color: #073B4C;
+}
+
+button.submit-button:hover {
+	background-color: #3798aa;
+}
+
+button.submit-button:focus {
+	background-color: #073B4C;
 }
 /* a {
 	text-decoration: none;
 	color: white;
-	
 } */
 
 div.sub-line {
@@ -63,6 +74,29 @@ footer {
 	padding: 20px;
 	background-color: #073B4C;
 	color: white;
+}
+
+.cardTitle {
+	color: #ecb887;
+	text-align: center;
+	font-family: 'Archivo Black', sans-serif;
+}
+ 
+.card-content {
+	background-color: #ecb887;
+	color: white;
+	text-align: center;
+	position:relative;
+}
+
+.movieSummary {
+	/* width: 50px; */
+	/* height: 50px; */
+	/* Center vertically and horizontally */
+	/* position: absolute; */
+	top: 50%;
+	text-align: center;
+
 }
 
 footer img {
