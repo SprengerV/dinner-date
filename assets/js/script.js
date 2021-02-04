@@ -68,4 +68,15 @@ $(function () {
 			card.addClass("hidden");
 		}
 	}
+
+
+	window.populateHistory = function (container, data) {
+		if (!Array.isArray(data)) return;
+		container.empty();
+		data.forEach((item, index) => {
+			let card = window.createCard(container, "", false);
+			card.addClass("col s12 offset-m3 m6 l2");
+			window.populateCard(card, { imageSrc: item.imageSrc });
+		});
+	}
 });
