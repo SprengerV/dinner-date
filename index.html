@@ -48,7 +48,7 @@
 				<h2>Let's Start With Dinner</h2>
 			</div>
 
-			<h4>Dinner Ideas</h4>
+			<h4>Dinner Selection</h4>
 
 			<form class="mealSearchForm">
 				<div class="row">
@@ -93,21 +93,7 @@
 				</div>
 			</form>
 
-			<div class="col s12 m7 recipeDisplay">
-				<h2 class="cardTitle"></h2>
-				<div class="card">
-					<div class="card-image">
-						<img src="">
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-							<p></p>
-						</div>
-						<div class="card-action">
-							<a href="#" target="_blank"></a>
-						</div>
-					</div>
-				</div>
+			<div id="recipeDisplay" class="col s12 m7 cardContainer">
 			</div>
 
 			<!-- movie image block -->
@@ -115,7 +101,10 @@
 				<h2>Now Lets Find a Movie</h2>
 			</div>
 
-			<h4>Movie Ideas</h4>
+			<!-- movie history -->
+			<div id="movieHistory" class="row cardContainer"></div>
+
+			<h4>Movie Selection</h4>
 
 			<form class="movieSearchForm">
 				<!-- Genre Selection -->
@@ -134,21 +123,7 @@
 				</div>
 			</form>
 
-			<div class="col s12 m7 movieDisplay">
-				<h2 class="cardTitle"></h2>
-				<div class="card horizontal">
-					<div class="card-image">
-						<img src="">
-					</div>
-					<div class="card-stacked">
-						<div class="card-content">
-							<p class="movieSummary"></p>
-						</div>
-						<div class="card-action">
-							<a href="#" target="_blank"></a>
-						</div>
-					</div>
-				</div>
+			<div id="movieDisplay" class="col s12 m7 cardContainer">
 			</div>
 
 		</div>
@@ -168,6 +143,7 @@
 		<script src="./assets/js/script.js"></script>
 		<script src="./assets/js/form.js"></script>
 		<script src="./assets/js/recipe.js"></script>
+		<script src="./assets/js/movie.js"></script>
 	</body>
 
 </html>
