@@ -49,7 +49,7 @@ $(".mealSearchForm").on("submit", function (e) {
         summary.pop();
         summary = summary.join(". ");
 
-        let card = window.createCard($("#recipeDisplay").empty());
+        let card = window.createCard($("#recipeDisplay"));
 
         let recipe = {
             imageSrc: result.image,

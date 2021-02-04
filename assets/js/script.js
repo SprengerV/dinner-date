@@ -1,5 +1,5 @@
 $(function () {
-	window.createCard = function (parent, id = "") {
+	window.createCard = function (parent, id = "", deleteContents = true) {
 		let card = $("<div>").addClass("card hidden");
 		card.append($("<div>")
 			.addClass("card-image")
@@ -16,6 +16,7 @@ $(function () {
 			)
 		);
 		if (id) card.attr("id", id);
+		if (deleteContents) parent.empty();
 		parent.append(card);
 		return card;
 	}
@@ -28,10 +29,13 @@ $(function () {
 		let anchor = card.find("a").hide();
 		let paragraph = card.find("p").hide();
 		let image = card.find("img").hide();
+		let action = card.find(".card-action").hide();
+		let content = card.find(".card-content").hide();
 
 		// apply options
 		if (options.title) {
 			title.text(options.title).show();
+			content.show();
 			itemsDisplayed = true;
 		}
 
@@ -42,11 +46,13 @@ $(function () {
 
 		if (options.summary) {
 			paragraph.html(options.summary).show();
+			content.show();
 			itemsDisplayed = true;
 		}
 
 		if (options.link) {
 			anchor.attr("href", options.link).text("More details here.").show();
+			action.show();
 			itemsDisplayed = true;
 		}
 
