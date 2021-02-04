@@ -60,6 +60,7 @@ $(".mealSearchForm").on("submit", function (e) {
         };
 
         window.populateCard(card, recipe);
+        saveRecipe(recipe);
     });
 });
 
@@ -74,15 +75,19 @@ function searchRecipes(diet, includeIngredients, intolerances) {
         method: "GET",
         dataType: "json"
     });
-
 }
 
-function getRecipeSummaryById(ID) {
-    let queryURL = `https://api.spoonacular.com/recipes/${ID}/information?apiKey=${apiKey}`;
 
-    return $.ajax({
-        url: queryURL,
-        method: "GET"
-    });
+function saveRecipe(recipe) {
+    let savedRecipes = JSON.parse(localStorage.getItem('recipes'));
+
+    if (savedRecipes === null) {
+        savedRecipes = [recipe];
+    } else {
+        savedRecipes.unshift(recipe);
+        savedRecipes = savedRecipes.slice(0, 5);
+    }
+
+    localStorage.setItem('recipes', JSON.stringify(savedRecipes));
 }
 
