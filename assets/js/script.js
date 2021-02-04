@@ -1,65 +1,82 @@
 $(function () {
+	window.createCard = function (parent, id = "", deleteContents = true) {
+		let card = $("<div>").addClass("card hidden");
+		card.append($("<div>")
+			.addClass("card-image")
+			.append($("<img>"))
+		).append($("<div>")
+			.addClass("card-stacked")
+			.append($("<div>")
+				.addClass("card-content")
+				.append($("<span>").addClass("card-title"))
+				.append($("<p>"))
+			).append($("<div>")
+				.addClass("card-action")
+				.append($("<a>").attr("target", "_blank"))
+			)
+		);
+		if (id) card.attr("id", id);
+		if (deleteContents) parent.empty();
+		parent.append(card);
+		return card;
+	}
 
-	// movie search submission
-	$(".movieSearchForm").on("submit", function (e) {
-		e.preventDefault()
+	window.populateCard = function (card, options) {
+		let itemsDisplayed = false;
 
-		// form jquery object
-		let form = $(this);
-		let genreList = form.serializeArray();
-		// all form data is in dataObj now
+		// get selectors
+		let title = card.find(".card-title").hide();
+		let anchor = card.find("a").hide();
+		let paragraph = card.find("p").hide();
+		let image = card.find("img").hide();
+		let action = card.find(".card-action").hide();
+		let content = card.find(".card-content").hide();
 
-		// create genres query string from genreList
-		var genres = genreList.map(function(gen){
-			return gen.value;
-		}).join('|');
-		if (genres.length > 0) {
-			genres = '&with_genres=' + genres;
-		};
-		// create query URL
-		const discover = 'https://api.themoviedb.org/3/discover/movie?api_key=f66fd70d918aed123c6a3b422a1934d8&include_adult=false&with_original_language=en' + genres;
-		$.get(discover).then(function(response){
-			// pick a random movie from the response list
-			const rand = Math.floor(Math.random() * response.results.length);
-			const pick = response.results[rand];
-			// set up displayMovie() with movieObj containing pertinent info
-			let movie = {
-				imageSrc: `https://image.tmdb.org/t/p/w500${pick.poster_path}`,
-				title: pick.title,
-				summary: pick.overview,
-				orientation: "horizontal"
-			};
+		// apply options
+		if (options.title) {
+			title.text(options.title).show();
+			content.show();
+			itemsDisplayed = true;
+		}
 
-			// display movie
-			displayMovie(movie);
-			// save movie
-			saveMovie(movie);
+		if (options.imageSrc) {
+			image.attr("src", options.imageSrc).show();
+			itemsDisplayed = true;
+		}
+
+		if (options.summary) {
+			paragraph.html(options.summary).show();
+			content.show();
+			itemsDisplayed = true;
+		}
+
+		if (options.link) {
+			anchor.attr("href", options.link).text("More details here.").show();
+			action.show();
+			itemsDisplayed = true;
+		}
+
+		if (options.orientation === "horizontal") {
+			card.addClass(options.orientation);
+		} else {
+			card.css("max-width", "500px");
+		}
+
+		if (itemsDisplayed) {
+			card.removeClass("hidden");
+		} else {
+			card.addClass("hidden");
+		}
+	}
+
+
+	window.populateHistory = function (container, data) {
+		if (!Array.isArray(data)) return;
+		container.empty();
+		data.forEach((item, index) => {
+			let card = window.createCard(container, "", false);
+			card.addClass("col s12 offset-m3 m6 l2");
+			window.populateCard(card, item);
 		});
-	});
-
-	function displayMovie(movieObj) {
-		let movieArea = $(".movieDisplay").fadeIn();
-
-		movieArea.find("h2").text(movieObj.name);
-
-		movieArea.find("img").attr("src", movieObj.posterSrc);
-
-		movieArea.find("p").text(movieObj.summary);
-	};
-
-	function saveMovie(movieObj) {
-		// pull saved movies from local storage
-		let saved = JSON.parse(localStorage.getItem('savedMovies'));
-		// if there are saved movies, add most recent search, if not, create an array containing it
-		if(saved){
-			saved.unshift(movieObj);
-		}else{
-			saved = [movieObj];
-		};
-		// save modified array to local storage
-		localStorage.setItem('savedMovies',JSON.stringify(saved));
-		// return saved movies obj for later use
-		return saved;
-	};
-
+	}
 });
