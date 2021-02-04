@@ -71,7 +71,7 @@ $(function () {
         if (!Array.isArray(data)) return;
         let newData = [];
         data.forEach((item, index) => {
-            newData.push({ imageSrc: item.imageSrc, summary: item.title });
+            newData.push({ imageSrc: item.imageSrc });
         });
         window.populateHistory(container, newData);
     }

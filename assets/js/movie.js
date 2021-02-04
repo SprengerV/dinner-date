@@ -40,7 +40,7 @@ $(function () {
 
 
 
-			populateMovieHistory($("#movieHistory"),);
+			populateMovieHistory($("#movieHistory"), saveMovie(movie));
 		});
 	});
 
