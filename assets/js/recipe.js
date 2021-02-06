@@ -85,7 +85,6 @@ $(function () {
         });
     }
 
-
     function saveRecipe(recipe) {
         let savedRecipes = JSON.parse(localStorage.getItem('recipes'));
 
@@ -101,10 +100,8 @@ $(function () {
         return savedRecipes;
     }
 
-
     function getSavedRecipes() {
         let savedRecipes = JSON.parse(localStorage.getItem('recipes'));
         return savedRecipes;
     }
-
 });

@@ -73,7 +73,6 @@ $(function () {
 		}
 	}
 
-
 	window.populateHistory = function (container, data, detailsTarget) {
 		if (!Array.isArray(data)) return;
 		container.empty();
