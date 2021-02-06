@@ -80,7 +80,7 @@ $(function () {
 		data.forEach((item, index) => {
 			let tempItem = { imageSrc: item.imageSrc };
 			let card = window.createCard(container, "", false);
-			card.addClass("col s12 offset-m3 m6 l2");
+			card.addClass("col s4 offset-m3 m6 l2 ");
 			tempItem.onclick = (e) => {
 				// display data
 				window.populateCard(

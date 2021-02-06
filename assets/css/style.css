@@ -35,7 +35,7 @@ div.sub-line {
 	color: #073B4C;
 }
 
-h4, h5 {
+h4, h6 {
 	font-family: 'Archivo Black', sans-serif;
 	text-align: center;
 	color: #073B4C;
@@ -128,26 +128,29 @@ footer {
 .footer-left {
 	display: block;
 	text-align: left;
-	vertical-align: top;
 }
 
 .footer-center {
 	text-align: center;
 	display: block;
-	vertical-align: top;
 }
  p a {
 	text-decoration: none;
 	color: white;
 }
 
+.flexbox {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  }
+
 .cardContainer {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-top: 0;
 	padding-bottom: 0;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .cardContainer .card.hidden {
