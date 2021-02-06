@@ -128,13 +128,11 @@ footer {
 .footer-left {
 	display: block;
 	text-align: left;
-	vertical-align: top;
 }
 
 .footer-center {
 	text-align: center;
 	display: block;
-	vertical-align: top;
 }
  p a {
 	text-decoration: none;
