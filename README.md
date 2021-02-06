@@ -1,21 +1,29 @@
-# Evening Planner
+# Dinner-date
 
 ## DESCRIPTION
 
-A small tool to plan your evening with dinner and a movie.
+An application to help plan your evening with dinner and a movie!
 
-The deployed project can be viewed [here](https://thetiiiim.github.io/evening-planner/)
+check out the deployed project here! [here](https://thetiiiim.github.io/evening-planner/)
 
-### Built With
 
-[TheMovieDB API](https://www.themoviedb.org/documentation/api)
+## Screenshot of Application
 
-[Spoonacular API](https://spoonacular.com/food-api)
+![application screenshot](./assets/images/screenshot.png)
+
+
+## Directions 
+```
+- Input ingredients available, allergies, or diet preference and hit the search button to
+get a random dinner idea! link to recipe page is available with the displayed card.
+- Next pick what movie genre you desire and hit search for a random movie selection!
+- your 6 most recent dinner and movie searches will be saved and when clicked will display the original information!
+```
 
 ## User Story
 
 ```
-AS an indecisive meal prepper
+AS an indecisive person
 I WANT someone to recommend ideas for dinner and a movie
 SO THAT the decision is taken care of
 ```
@@ -30,18 +38,28 @@ WHEN I specify genres or movie details
 THEN I am presented with a movie to watch
 ```
 
+## Usage
+```
+ - JavaScript
+ - HTML
+ - CSS
+ - Materialize
+ - JQuery
+ - [TheMovieDB API](https://www.themoviedb.org/documentation/api)
+ - [Spoonacular API](https://spoonacular.com/food-api)
+```
 ## TEAM ROLES
 
 ### UI
-
-* Tim
-* Taylor
+```
+* [Tim](https://github.com/TheTiiiim): Forms/functionality
+* [Taylor](https://github.com/Taylorgonz): Design/layout
 
 ### API
 
-* Hannah
-* Brendan
+* [Hannah](https://github.com/hannamunoz): Recipe API/backend functions
+* [Brendan](https://github.com/SprengerV): Movie API/ bakend functions
+```
+## licensing
+https://www.mit.edu/~amini/LICENSE.md
 
-## Design Wireframe
-
-![design wireframe](./assets/images/design-wireframe.png)

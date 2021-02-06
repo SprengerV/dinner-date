@@ -1,163 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tab favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="./assets/images/favicon/dinner-date-favicon.png"
+    />
+    <title>Evening Planner</title>
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- tab favicon -->
-		<link rel="shortcut icon" type="image/jpg" href="./assets/images/favicon/dinner-date-favicon.png">
-		<title>Evening Planner</title>
+    <!-- library css -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo+Black&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-		<!-- library css -->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-		<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo+Black&family=Permanent+Marker&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/form.css" />
+  </head>
 
-		<!-- custom css -->
-		<link rel="stylesheet" href="./assets/css/style.css" />
-		<link rel="stylesheet" href="./assets/css/form.css" />
-	</head>
+  <!-- main content -->
 
-	<!-- main content -->
+  <body>
+    <div class="header">
+      <h1>Dinner-Date</h1>
+      <h3 class="subTitle" id="nav-links">
+        <a class="subTitleLinks" href="#start-dinner">Dinner </a> /
+        <a class="subTitleLinks" href="#start-movie"> Movie</a>
+      </h3>
+    </div>
 
-	<body>
-		<div class="header">
-			<h1>Dinner-Date</h1>
-			<!-- <p><a href="#start-dinner">Dinner</a>/<a href="#start-movie">Movie</a> </p> -->
-		</div>
+    <div class="container">
+      <div class="sub-line section">
+        <h4>
+          Making your date night, dinner and a movie decision that much easier!
+        </h4>
+        <p>
+          We make it easy for you to search for a recipe within your dietary
+          restricitons, intolerances, or even with whats already in your fridge!
+          <br />
+          Don't forget the most important part, <strong>the MOVIE!</strong> Pick
+          whatever genre you're in the mood for and we'll help you decide what
+          to watch tonight!
+        </p>
+      </div>
 
-		<div class="container">
-			<div class="sub-line section">
-				<h4>
-					Making your date night, dinner and a movie decision that much easier!
-				</h4>
-				<p>
-					We make it easy for you to search for a recipe within your dietary
-					restricitons, intolerances, or even with whats already in your fridge!
-					<br />
-					Don't forget the most important part, <strong>the movie!</strong> Pick
-					whatever genre you're in the mood for and we'll help you decide what
-					to watch tonight!
-				</p>
-			</div>
+      <div class="divider"></div>
 
-			<div class="divider"></div>
+      <!-- dinner image block -->
+      <div id="start-dinner" class="start-dinner">
+        <h2>Let's Start With Dinner</h2>
+      </div>
 
-			<!-- dinner image block -->
-			<div id="start-dinner" class="start-dinner">
-				<h2>Let's Start With Dinner</h2>
-			</div>
+      <h4>Dinner Selection</h4>
 
-			<h4>Dinner Selection</h4>
+      <form class="mealSearchForm">
+        <div class="row">
+          <!-- Ingredients Column -->
+          <div class="col s12">
+            <label for="ingredientArea">Ingredients List</label>
+            <div class="chips chips-placeholder input-field">
+              <input
+                id="ingredientArea"
+                class="input"
+                placeholder="+ ingredients"
+              />
+            </div>
+          </div>
 
-			<form class="mealSearchForm">
-				<div class="row">
+          <!-- Allergens & Intolerances Column -->
+          <div class="col s6">
+            <label for="intoleranceList">Allergens and Intolerances</label>
+            <p data-controls="intoleranceList" class="dropDownControl">
+              Click here to <span>show</span> intolerances / allergies.
+            </p>
+            <div id="intoleranceList" class="row input-field dropDownArea">
+              <!-- allergies go here -->
+            </div>
+          </div>
 
-					<!-- Ingredients Column -->
-					<div class="col s12">
-						<label for="ingredientArea">Ingredients List</label>
-						<div class="chips chips-placeholder input-field">
-							<input id="ingredientArea" class="input" placeholder="+ ingredients" />
-						</div>
-					</div>
+          <!-- Diets Column -->
+          <div class="col s6">
+            <label for="dietList">Diet Choice</label>
+            <p data-controls="dietList" class="dropDownControl">
+              Click here to <span>show</span> diet choices.
+            </p>
+            <div id="dietList" class="row input-field dropDownArea">
+              <!-- diets go here -->
+            </div>
+          </div>
+        </div>
 
-					<!-- Allergens & Intolerances Column -->
-					<div class="col s6">
-						<label for="intoleranceList">Allergens and Intolerances</label>
-						<p data-controls="intoleranceList" class="dropDownControl">
-							Click here to <span>show</span> intolerances / allergies.
-						</p>
-						<div id="intoleranceList" class="row input-field dropDownArea">
-							<!-- allergies go here -->
-						</div>
-					</div>
+        <!-- submit -->
+        <div class="row center-align">
+          <button
+            class="btn submit-button waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
 
-					<!-- Diets Column -->
-					<div class="col s6">
-						<label for="dietList">Diet Choice</label>
-						<p data-controls="dietList" class="dropDownControl">
-							Click here to <span>show</span> diet choices.
-						</p>
-						<div id="dietList" class="row input-field dropDownArea">
-							<!-- diets go here -->
-						</div>
-					</div>
-				</div>
+      <div class="col s12 m7 cardContainer">
+        <div id="recipeDisplay" class="flexbox"></div>
+      </div>
 
-				<!-- submit -->
-				<div class="row center-align">
-					<button class="btn submit-button waves-effect waves-light" type="submit" name="action">
-						Submit
-						<i class="material-icons right">send</i>
-					</button>
-				</div>
-			</form>
+      <!-- recipe history -->
+      <h6>-Dinner History-</h6>
+      <div class="row cardContainer">
+        <div id="recipeHistory" class="flexbox"></div>
+      </div>
 
-			<div class="col s12 m7 cardContainer">
-				<div id="recipeDisplay" class='flexbox'></div>
-			</div>
+      <!-- movie image block -->
+      <div id="start-movie" class="start-movie">
+        <h2>Now Lets Find a Movie</h2>
+      </div>
 
-			<!-- recipe history -->
-			<h6>-Dinner History-</h6>
-			<div class="row cardContainer ">
-				<div id="recipeHistory" class='flexbox'></div>
-			</div>
+      <h4>Movie Selection</h4>
 
-			<!-- movie image block -->
-			<div id="start-movie" class="start-movie">
-				<h2>Now Lets Find a Movie</h2>
-			</div>
+      <form class="movieSearchForm">
+        <!-- Genre Selection -->
+        <label for="genreList">Select Genre</label>
+        <div id="genreList" class="row input-field">
+          <!-- genre radio buttons go here -->
+        </div>
 
-			<h4>Movie Selection</h4>
+        <!-- submit -->
+        <div class="row center-align">
+          <button
+            class="btn submit-button waves-effect waves-light"
+            type="submit"
+            name="action"
+          >
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
 
-			<form class="movieSearchForm">
-				<!-- Genre Selection -->
-				<label for="genreList">Select Genre</label>
-				<div id="genreList" class="row input-field">
-					<!-- genre radio buttons go here -->
-				</div>
+      <div id="movieDisplay" class="col s12 m7 cardContainer"></div>
 
-				<!-- submit -->
-				<div class="row center-align">
-					<button class="btn submit-button waves-effect waves-light" type="submit" name="action">f
-						Submit
-						<i class="material-icons right">send</i>
-					</button>
-				</div>
-			</form>
+      <!-- movie history -->
+      <h6>-Movie History-</h6>
+      <div class="row cardContainer">
+        <div id="movieHistory" class="flexbox"></div>
+      </div>
 
-			<div id="movieDisplay" class="col s12 m7 cardContainer">
-			</div>
+      <!-- footer -->
+    </div>
+    <footer>
+      <div class="footer-credit">
+        <p>
+          This product uses the TMDb API, but is not endorsed or certified
+          byTMDb.
+        </p>
+        <img src="assets/images/credit-logos/tmdb.svg" />
+      </div>
+      <div>
+        <p class="footer-links">
+          MADE BY:
+          <a type="_blank" href="https://github.com/TheTiiiim">Tim Scott</a>,
+          <a type="_blank" href="https://github.com/hannamunoz">Hanna Munoz</a>,
+          <a type="_blank" href="https://github.com/SprengerV"
+            >Brendan Francis</a
+          >,
+          <a type="_blank" href="https://github.com/Taylorgonz"
+            >Taylor Gonzales</a
+          >
+        </p>
+      </div>
+    </footer>
 
-			<!-- movie history -->
-			<h6>Movie History</h6>
-			<div class="row cardContainer">
-				<div id="movieHistory" class='flexbox'></div>
-			</div>
+    <!-- library js -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-		</div>
-		<!-- footer -->
-
-		<footer>
-			<div class='footer-left'>
-				<p>This product uses the TMDb API, <br> but is not endorsed or certified byTMDb.</p>
-				<img src="assets/images/credit-logos/tmdb.svg">
-			</div>
-			<div class="footer-center">
-				<p class="credit">made by: <a href="https://github.com/TheTiiiim">Tim Scott</a>, <a href="https://github.com/hannamunoz">Hanna Munoz</a>, <a href="https://github.com/SprengerV">Brendan Francis</a>, <a href="https://github.com/Taylorgonz">Taylor Gonzales</a></p>
-			</div>
-		</footer>
-
-
-		<!-- library js -->
-		<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-		<!-- custom js -->
-		<script src="./assets/js/script.js"></script>
-		<script src="./assets/js/form.js"></script>
-		<script src="./assets/js/recipe.js"></script>
-		<script src="./assets/js/movie.js"></script>
-	</body>
-
+    <!-- custom js -->
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/recipe.js"></script>
+    <script src="./assets/js/movie.js"></script>
+  </body>
 </html>
