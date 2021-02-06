@@ -2,7 +2,9 @@ $(function () {
     // spoontacular API key 
     const apiKey = 'da731b598e504364be9209e1b7cd3b7d';
 
-    populateRecipeHistory($("#recipeHistory"), getSavedRecipes());
+    window.populateHistory($("#recipeHistory"),
+        getSavedRecipes(),
+        $("#recipeDisplay"));
 
     // meal search submission
     $(".mealSearchForm").on("submit", function (e) {
@@ -63,18 +65,12 @@ $(function () {
             };
 
             window.populateCard(card, recipe);
-            populateRecipeHistory($("#recipeHistory"), saveRecipe(recipe));
+
+            window.populateHistory($("#recipeHistory"),
+                saveRecipe(recipe),
+                $("#recipeDisplay"));
         });
     });
-
-    function populateRecipeHistory(container, data) {
-        if (!Array.isArray(data)) return;
-        let newData = [];
-        data.forEach((item, index) => {
-            newData.push({ imageSrc: item.imageSrc });
-        });
-        window.populateHistory(container, newData);
-    }
 
     // function that gathers all parameters and calls to API
     function searchRecipes(diet, includeIngredients, intolerances) {

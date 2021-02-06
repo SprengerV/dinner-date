@@ -1,6 +1,8 @@
 $(function () {
 
-	populateMovieHistory($("#movieHistory"), getSavedMovies());
+	window.populateHistory($("#movieHistory"),
+		getSavedMovies(),
+		$("#movieDisplay"));
 
 	// movie search submission
 	$(".movieSearchForm").on("submit", function (e) {
@@ -38,20 +40,11 @@ $(function () {
 			// display movie
 			window.populateCard(card, movie);
 
-
-
-			populateMovieHistory($("#movieHistory"), saveMovie(movie));
+			window.populateHistory($("#movieHistory"),
+				saveMovie(movie),
+				$("#movieDisplay"));
 		});
 	});
-
-	function populateMovieHistory(container, data) {
-		if (!Array.isArray(data)) return;
-		let newData = [];
-		data.forEach((item, index) => {
-			newData.push({ imageSrc: item.imageSrc });
-		});
-		window.populateHistory(container, newData);
-	}
 
 	function saveMovie(movieObj) {
 		let saved = JSON.parse(localStorage.getItem('savedMovies'));
