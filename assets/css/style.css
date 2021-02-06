@@ -18,14 +18,33 @@ h1 {
 	font-size: 80px;
 }
 
+.subTitle {
+	font-weight: bold;
+	font-size:x-large;
+	display: inline-flex;
+	margin-top: 0;
+	letter-spacing: 5px;
+}
+
+a.subTitleLinks {
+	text-decoration: none;
+	color:white
+}
+
+a.subTitleLinks:hover {
+	color:#ecb887;
+	
+}
+
+/* button color */
 button.submit-button{
 	background-color: #073B4C;
 }
-
+/* button hover color */
 button.submit-button:hover {
 	background-color: #0B5F7B;
 }
-
+/* button focus color */
 button.submit-button:focus {
 	background-color: #073B4C;
 }
@@ -33,14 +52,18 @@ button.submit-button:focus {
 div.sub-line {
 	text-align: center;
 	color: #073B4C;
+	font-size: medium;
 }
-
+strong {
+	font-weight: bolder;
+}
+/* header styling */
 h4, h6 {
 	font-family: 'Archivo Black', sans-serif;
 	text-align: center;
 	color: #073B4C;
 }
-
+/* dinner image block */
 .start-dinner {
 	padding: 120px;
 	background-image: url("../images/dinner-img/todd-quackenbush-x5SRhkFajrA-unsplash.jpg");
@@ -51,8 +74,9 @@ h4, h6 {
 	color: white;
 	font-size: 80px;
 	font-family: 'Abril Fatface', cursive;
+	border-radius: 15px;
 }
-
+/* movie image block */
 .start-movie {
 	padding: 120px;
 	background-image: url("../images/movies/mollie-sivaram-yubCnXAA3H8-unsplash.jpg");
@@ -63,23 +87,26 @@ h4, h6 {
 	color: white;
 	font-size: 80px;
 	font-family: 'Abril Fatface', cursive;
+	border-radius: 15px;
+	margin-top: 10px;
 }
 
 
-
+/* card title styling */
 .card-title {
 	color:white;
 	text-align: center;
 	font-family: 'Archivo Black', sans-serif;
 
 }
- 
+ /* recipe and movie card contenter area styling */
 .card-content {
 	background-color: #ecb887;
 	color: white;
 	text-align: center;
 	position:relative;
 }
+/* recipe and movie card border styling */
 #movieDisplay .card-stacked, 
 #movieDisplay .card-image, 
 #recipeDisplay .card-stacked, 
@@ -103,19 +130,21 @@ h4, h6 {
 	border-radius: 10px;
 	
 }
-
+/* movie history card hover */
 #movieHistory .card:hover {
 	box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
 	transform: translate3d(0px, -1px, 0px);
   }
-
+/* recipe history card hover */
 #recipeHistory .card:hover{
 	box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
 	transform: translate3d(0px, -1px, 0px);
   }
 
+
 footer img {
 	width: 150px;
+	border-radius: 0;
 }
 
 footer {
@@ -124,34 +153,28 @@ footer {
 	padding: 20px;
 	background-color: #073B4C;
 	color: white;
+	text-align: center;
+	display: block;
 }
-.footer-left {
+
+.footer-credit{
 	display: block;
 	text-align: left;
 }
 
-.footer-center {
-	text-align: center;
-	display: block;
-}
- p a {
+
+/* footer links */
+ .credits a {
 	text-decoration: none;
 	color: white;
 }
-
+/* flexbox wrapper around cards */
 .flexbox {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
   }
-
-.cardContainer {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
-}
 
 .cardContainer .card.hidden {
 	display: none;
