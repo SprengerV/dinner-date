@@ -56,6 +56,10 @@ $(function () {
 			itemsDisplayed = true;
 		}
 
+		if (options.onclick) {
+			card.on("click", options.onclick);
+		}
+
 		if (options.orientation === "horizontal") {
 			card.addClass(options.orientation);
 		} else {
@@ -69,14 +73,20 @@ $(function () {
 		}
 	}
 
-
-	window.populateHistory = function (container, data) {
+	window.populateHistory = function (container, data, detailsTarget) {
 		if (!Array.isArray(data)) return;
 		container.empty();
 		data.forEach((item, index) => {
+			let tempItem = { imageSrc: item.imageSrc };
 			let card = window.createCard(container, "", false);
-			card.addClass("col s12 offset-m3 m6 l2");
-			window.populateCard(card, item);
+			card.addClass("col s4 offset-m3 m6 l2");
+			tempItem.onclick = (e) => {
+				// display data
+				window.populateCard(
+					window.createCard(detailsTarget),
+					item);
+			}
+			window.populateCard(card, tempItem);
 		});
 	}
 });
