@@ -75,7 +75,7 @@ $(function () {
 		container.empty();
 		data.forEach((item, index) => {
 			let card = window.createCard(container, "", false);
-			card.addClass("col s12 offset-m3 m6 l2");
+			card.addClass("col s4 offset-m3 m6 l2 ");
 			window.populateCard(card, item);
 		});
 	}
