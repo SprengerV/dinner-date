@@ -39,19 +39,19 @@ THEN I am presented with a movie to watch
 ```
 
 ## Usage
-```
+
  - JavaScript
  - HTML
  - CSS
  - Materialize
  - JQuery
- - [TheMovieDB API](https://www.themoviedb.org/documentation/api)
- - [Spoonacular API](https://spoonacular.com/food-api)
-```
+  [TheMovieDB API](https://www.themoviedb.org/documentation/api)
+  [Spoonacular API](https://spoonacular.com/food-api)
+
 ## TEAM ROLES
 
 ### UI
-```
+
 * [Tim](https://github.com/TheTiiiim): Forms/functionality
 * [Taylor](https://github.com/Taylorgonz): Design/layout
 
@@ -59,7 +59,7 @@ THEN I am presented with a movie to watch
 
 * [Hannah](https://github.com/hannamunoz): Recipe API/backend functions
 * [Brendan](https://github.com/SprengerV): Movie API/ bakend functions
-```
+
 ## licensing
 https://www.mit.edu/~amini/LICENSE.md
 
